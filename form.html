@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário CazaTech</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #5e4b9a, #1e2949);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .form-container {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 20px 30px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        color: #333;
+      }
+
+      .form-container h1 {
+        text-align: center;
+        color: #5e4b9a;
+      }
+
+      .form-container p {
+        text-align: center;
+        color: #1e2949;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #f7941d;
+        border-radius: 8px;
+        font-size: 1em;
+      }
+
+      .form-group textarea {
+        resize: none;
+        height: 80px;
+      }
+
+      .form-container button {
+        background: linear-gradient(to right, #f06191, #f7941d);
+        border: none;
+        color: #fff;
+        padding: 10px 15px;
+        font-size: 1.2em;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .form-container button:hover {
+        background: linear-gradient(to right, #f7941d, #f06191);
+      }
+
+      .form-footer {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Conte-nos sobre sua ideia!</h1>
+      <p>
+        Preencha o formulário e traremos a melhor solução digital para você.
+      </p>
+
+      <form action="http://localhost:3000/send-email" method="POST">
+        <!-- Nome Completo -->
+        <div class="form-group">
+          <label for="name">Nome Completo</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Digite seu nome"
+            required
+            maxlength="100"
+            pattern="[a-zA-ZÀ-ÿ\s]+"
+            title="Apenas letras e espaços são permitidos"
+          />
+        </div>
+
+        <!-- E-mail -->
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Digite seu e-mail"
+            required
+          />
+        </div>
+
+        <!-- Telefone -->
+        <div class="form-group">
+          <label for="phone">Telefone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Digite seu telefone"
+            required
+            pattern="\d{10,15}"
+            title="Digite um número de telefone válido com 10 a 15 dígitos"
+          />
+        </div>
+
+        <!-- Nome da Empresa -->
+        <div class="form-group">
+          <label for="company">Nome da Empresa</label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder="Digite o nome da sua empresa"
+            maxlength="100"
+          />
+        </div>
+
+        <!-- Identidade Visual -->
+        <div class="form-group">
+          <label>Você já possui identidade visual?</label>
+          <select name="branding" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="yes">Sim</option>
+            <option value="no">Não</option>
+          </select>
+        </div>
+
+        <!-- Tipo de Site -->
+        <div class="form-group">
+          <label>Que tipo de site você precisa?</label>
+          <select name="site-type" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="static">Site Estático</option>
+            <option value="dynamic">Site Dinâmico</option>
+            <option value="landing-page">Landing Page</option>
+            <option value="3d">Modelos 3D</option>
+          </select>
+        </div>
+
+        <!-- Orçamento -->
+        <div class="form-group">
+          <label for="budget">Orçamento disponível</label>
+          <input
+            type="number"
+            id="budget"
+            name="budget"
+            placeholder="Digite o valor aproximado"
+            min="0"
+            max="10000000"
+            step="0.01"
+          />
+        </div>
+
+        <!-- Informações Adicionais -->
+        <div class="form-group">
+          <label for="comments">Informações adicionais</label>
+          <textarea
+            id="comments"
+            name="comments"
+            placeholder="Descreva aqui"
+            maxlength="500"
+          ></textarea>
+        </div>
+
+        <!-- Botão -->
+        <button type="submit">Enviar</button>
+      </form>
+
+      <div class="form-footer">
+        <p>Responderemos em até 3 dias úteis!</p>
+      </div>
+    </div>
+  </body>
+</html>
