@@ -1,4 +1,4 @@
-// side bar start
+// side bar startfunction openNav() {
 function openNav() {
   "use strict";
   const sidepanel = document.getElementById("mySidepanel");
@@ -231,37 +231,47 @@ $(".sliderlogo").slick({
 });
 
 // responsive team Slider
-$(".team-slider").slick({
-  arrows: false,
-  dots: true,
-  infinite: false,
-  autoplay: true,
-  speed: 300,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true,
+$(document).ready(function () {
+  $(".team-slider").slick({
+    arrows: false, // Sem setas de navegação
+    dots: true, // Mostrar pontos de navegação
+    infinite: true, // Loop infinito
+    autoplay: true, // Rolagem automática
+    autoplaySpeed: 3000, // Tempo entre transições automáticas (em ms)
+    speed: 500, // Velocidade da transição
+    slidesToShow: 3, // Número de slides visíveis
+    slidesToScroll: 1, // Quantidade de slides ao rolar
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
       },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
       },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
+    ],
+  });
+});
+
+const swiper = new Swiper(".swiper-container", {
+  loop: true,
+  slidesPerView: 3,
+  spaceBetween: 20,
+  autoplay: {
+    delay: 3000,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    768: { slidesPerView: 1 }, // Configuração para dispositivos menores
+  },
 });

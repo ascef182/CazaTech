@@ -436,7 +436,7 @@ aside {
   position: fixed;
   height: 100vh;
   top: 0;
-  left: -320px;
+  left: -320px; /* Começa fora da tela */
   overflow-x: hidden;
   transition: 0.5s;
   padding: 40px 20px 20px 20px;
@@ -573,67 +573,6 @@ aside .pages {
 .show {
   height: 500px !important;
   transition: height 0.35s ease;
-}
-
-/* searchbar */
-
-#search-bar {
-  background-color: #000000a6;
-  width: 100%;
-  height: 0;
-  border-radius: 0px;
-  bottom: 0;
-  z-index: 2;
-  transition: all 0.5s ease;
-  position: fixed;
-  display: flex;
-}
-
-#search-bar div:first-child {
-  position: absolute;
-  width: 44px;
-  height: 44px;
-  right: 0;
-  background: linear-gradient(42deg, #7436bb 0.01%, #b520a3 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.25em;
-  border: 1.5px solid #b520a3;
-  color: #ffffff;
-  margin: 30px;
-  cursor: pointer;
-}
-
-#search-bar div:first-child:hover {
-  background: inherit;
-}
-
-#search-bar form {
-  border-radius: 50px;
-  border: 1px solid #6d2f8a;
-  background: #381a46;
-  width: 50%;
-  margin: auto;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-}
-
-#search-bar form input {
-  border-radius: 50px;
-  background: #381a46;
-  border: none;
-  outline: none;
-  padding: 10px 20px;
-  color: #ffffff;
-  font-size: 18px;
-  width: 100%;
-}
-
-#search-bar form button {
-  transition: all 0.3s ease;
-  text-transform: uppercase;
 }
 
 /* header right sidebar */
@@ -866,6 +805,7 @@ aside .pages {
   padding-left: calc(var(--bs-gutter-x) * 0.5);
 }
 
+
 .header-card div {
   border-radius: 20px;
   background: linear-gradient(0deg, #471133 0%, #140921 100%);
@@ -891,7 +831,8 @@ aside .pages {
   width: 146px;
   letter-spacing: 1.1px;
   text-transform: uppercase;
-  margin: 20px 0 12px 0;
+  margin: 20px auto 12px auto; /* Ajuste automático para centralizar */
+  text-align: center; /
 }
 
 /* ====== End of 1.3. card section ====== */
@@ -1328,8 +1269,12 @@ aside .pages {
   border: 1px solid #b520a3;
   background: linear-gradient(11deg, #7436bb 0.01%, #b520a3 100%);
   box-shadow: 8px 18px 30px 0px rgba(0, 0, 0, 0.2);
-  padding: 40px 40px 30px 40px;
+  padding: 40px 20px; /* Ajuste para mais espaço interno */
   width: 100%;
+  text-align: center; /* Centraliza texto e elementos inline */
+  display: flex;
+  flex-direction: column; /* Alinha elementos em coluna */
+  align-items: center; /* Centraliza horizontalmente */
 }
 
 .service-card:hover {
@@ -1693,6 +1638,12 @@ aside .pages {
 .team a {
   padding: 15px 30px;
   border: 1.5px solid #ff8c4b;
+  transition: all 0.3s ease-in-out;
+}
+
+.team a:hover {
+  background-color: #ff8c4b;
+  color: #ffffff;
 }
 
 .team-slider {
@@ -1711,6 +1662,11 @@ aside .pages {
   width: 100%;
   object-fit: cover;
   background-repeat: no-repeat;
+  transition: transform 0.4s ease-in-out;
+}
+
+.team-img:hover img {
+  transform: scale(1.05);
 }
 
 .overlay {
@@ -1722,7 +1678,7 @@ aside .pages {
   overflow: hidden;
   width: 100%;
   height: 0;
-  transition: 0.5s ease;
+  transition: height 0.5s ease-in-out;
 }
 
 .team-img:hover .overlay {
@@ -1737,6 +1693,8 @@ aside .pages {
   transform: translate(-50%, -50%);
   text-align: center;
   color: #ffffff;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 .overlay_text h4 {
@@ -1751,6 +1709,7 @@ aside .pages {
 .overlay_text a {
   border: 1px solid #ffffff;
   border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .overlay_text a:hover {
@@ -1779,6 +1738,24 @@ aside .pages {
   padding: 40px 20px;
   margin-top: 90px;
   text-transform: uppercase;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.team-btn:hover {
+  background-color: #b520a3;
+  transform: scale(1.05);
+}
+
+/* Keyframes para animação suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
 /* ====== End of 1.10. team section ====== */
